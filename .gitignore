@@ -1,15 +1,23 @@
-output
-output_blender
-data
+# custom dirs
+output/
+output_blender/
+data/
+
+# Initially taken from Github's Python gitignore files
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
-**/*.pyc
 
 # C extensions
 *.so
+
+# tests and logs
+tests/fixtures/cached_*_text.txt
+logs/
+lightning_logs/
+lang_code_data/
 
 # Distribution / packaging
 .Python
@@ -43,6 +51,7 @@ pip-delete-this-directory.txt
 # Unit test / coverage reports
 htmlcov/
 .tox/
+.nox/
 .coverage
 .coverage.*
 .cache
@@ -69,14 +78,17 @@ instance/
 .scrapy
 
 # Sphinx documentation
-docs/en/_build/
-docs/zh_cn/_build/
+docs/_build/
 
 # PyBuilder
 target/
 
 # Jupyter Notebook
 .ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
 
 # pyenv
 .python-version
@@ -108,29 +120,54 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+.dmypy.json
+dmypy.json
 
-# custom
+# Pyre type checker
+.pyre/
+
+# vscode
+.vs
 .vscode
+
+# Pycharm
 .idea
-*.pkl
-*.pkl.json
-*.log.json
-work_dirs/
 
-# Pytorch
-*.pth
+# TF code
+tensorflow_code
 
-# onnx and tensorrt
-*.onnx
-*.trt
+# Models
+proc_data
 
-# local history
-.history/**
+# examples
+runs
+/runs_old
+/wandb
+/examples/runs
+/examples/**/*.args
+/examples/rag/sweep
 
-# Pytorch Server
-*.mar
+# data
+/data
+serialization_dir
+
+# emacs
+*.*~
+debug.env
+
+# vim
+.*.swp
+
+#ctags
+tags
+
+# pre-commit
+.pre-commit*
+
+# .lock
+*.lock
+
+# DS_Store (MacOS)
 .DS_Store
-
-.vector_cache
-
-__pycache
+# RL pipelines may produce mp4 outputs
+*.mp4
